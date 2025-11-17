@@ -31,16 +31,8 @@ const getDatasetSchema = z.object({
 /**
  * Search datasets using various filters.
  *
- * @param {{
- *   accessRights?: string,
- *   datasetIdentifier?: string,
- *   publisherIdentifier?: string,
- *   publicationLevel?: string,
- *   registrationStatus?: string,
- *   page?: number,
- *   pageSize?: number
- * }} args Tool arguments
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function searchDatasets(args) {
 	try {
@@ -56,8 +48,8 @@ async function searchDatasets(args) {
 /**
  * Get detailed information about a specific dataset by ID.
  *
- * @param {{ id: string, language?: string }} args Tool arguments containing the dataset ID and optional language
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments containing the dataset ID and optional language
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function getDataset(args) {
 	try {
@@ -76,7 +68,7 @@ async function getDataset(args) {
 /**
  * Register dataset tools with the MCP server.
  *
- * @param {import('@modelcontextprotocol/sdk/server/index.js').Server} server MCP server instance
+ * @param {object} server MCP server instance
  * @returns {void}
  */
 export function registerDatasetTools(server) {

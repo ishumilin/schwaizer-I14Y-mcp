@@ -72,16 +72,8 @@ const getCodeListEntriesSchema = z.object({
 /**
  * Search concepts using various filters.
  *
- * @param {{
- *   conceptIdentifier?: string,
- *   publisherIdentifier?: string,
- *   version?: string,
- *   publicationLevel?: 'Internal'|'Public',
- *   registrationStatus?: 'Incomplete'|'Candidate'|'Recorded'|'Qualified'|'Standard'|'PreferredStandard'|'Superseded'|'Retired',
- *   page?: number,
- *   pageSize?: number
- * }} args Tool arguments
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function searchConcepts(args) {
 	try {
@@ -106,8 +98,8 @@ async function searchConcepts(args) {
 /**
  * Get detailed information about a specific concept by ID.
  *
- * @param {{ id: string }} args Tool arguments containing the concept UUID
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments containing the concept UUID
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function getConcept(args) {
 	try {
@@ -137,8 +129,8 @@ async function getConcept(args) {
  * Get code list entries for a code list concept.
  * Internally calls getConcept(id, true) to include code list entries.
  *
- * @param {{ id: string, page?: number, pageSize?: number }} args Tool arguments
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function getCodeListEntries(args) {
 	try {
@@ -169,7 +161,7 @@ async function getCodeListEntries(args) {
 /**
  * Register concept tools with the MCP server.
  *
- * @param {import('@modelcontextprotocol/sdk/server/index.js').Server} server MCP server instance
+ * @param {object} server MCP server instance
  * @returns {void}
  */
 export function registerConceptTools(server) {

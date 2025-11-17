@@ -26,15 +26,8 @@ const getPublicServiceSchema = z.object({
 /**
  * Search public services using various filters.
  *
- * @param {{
- *   publicServiceIdentifier?: string,
- *   publisherIdentifier?: string,
- *   publicationLevel?: string,
- *   registrationStatus?: string,
- *   page?: number,
- *   pageSize?: number
- * }} args Tool arguments
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function searchPublicServices(args) {
 	try {
@@ -50,8 +43,8 @@ async function searchPublicServices(args) {
 /**
  * Get detailed information about a specific public service by ID.
  *
- * @param {{ id: string }} args Tool arguments containing the public service UUID
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments containing the public service UUID
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function getPublicService(args) {
 	try {
@@ -67,7 +60,7 @@ async function getPublicService(args) {
 /**
  * Register public service tools with the MCP server.
  *
- * @param {import('@modelcontextprotocol/sdk/server/index.js').Server} server MCP server instance
+ * @param {object} server MCP server instance
  * @returns {void}
  */
 export function registerPublicServiceTools(server) {

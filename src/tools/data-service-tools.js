@@ -27,16 +27,8 @@ const getDataServiceSchema = z.object({
 /**
  * Search data services (APIs) using various filters.
  *
- * @param {{
- *   accessRights?: string,
- *   dataServiceIdentifier?: string,
- *   publisherIdentifier?: string,
- *   publicationLevel?: string,
- *   registrationStatus?: string,
- *   page?: number,
- *   pageSize?: number
- * }} args Tool arguments
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function searchDataServices(args) {
 	try {
@@ -52,8 +44,8 @@ async function searchDataServices(args) {
 /**
  * Get detailed information about a specific data service by ID.
  *
- * @param {{ id: string }} args Tool arguments containing the data service UUID
- * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>} MCP-formatted response
+ * @param {object} args Tool arguments containing the data service UUID
+ * @returns {Promise<object>} MCP-formatted response
  */
 async function getDataService(args) {
 	try {
@@ -69,7 +61,7 @@ async function getDataService(args) {
 /**
  * Register data service tools with the MCP server.
  *
- * @param {import('@modelcontextprotocol/sdk/server/index.js').Server} server MCP server instance
+ * @param {object} server MCP server instance
  * @returns {void}
  */
 export function registerDataServiceTools(server) {

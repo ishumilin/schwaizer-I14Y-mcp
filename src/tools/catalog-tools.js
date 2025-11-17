@@ -15,7 +15,7 @@ import { getCodeListEntriesSchema } from '../api/schemas.js';
 /**
  * Register catalog-related tools with the MCP server.
  *
- * @param {import('@modelcontextprotocol/sdk/server/index.js').Server} server - MCP server instance
+ * @param {object} server - MCP server instance
  * @returns {void}
  * @see getCodeListEntriesSchema
  */
@@ -27,8 +27,8 @@ export function registerCatalogTools(server) {
 		/**
 		 * Tool handler: Get entries from a code list concept.
 		 *
-		 * @param {{ id: string, page?: number, pageSize?: number }} args - Tool arguments
-		 * @returns {Promise<{content: Array<{type: 'text', text: string}>, isError?: boolean}>}
+		 * @param {object} args - Tool arguments
+		 * @returns {Promise<object>}
 		 */
 		async (args) => {
 			try {

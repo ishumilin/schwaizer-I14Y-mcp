@@ -58,7 +58,7 @@ const tools = new Map();
  * @function
  * @param {string} name - Unique tool identifier
  * @param {string} description - Human-readable tool description
- * @param {import('zod').ZodSchema} schema - Zod schema for validating tool inputs
+ * @param {object} schema - Zod schema for validating tool inputs
  * @param {Function} handler - Async function that executes the tool logic
  * @returns {void}
  * @example
