@@ -1,0 +1,48 @@
+{
+  "name": "schwaizer-i14y-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Switzerland's I14Y interoperability platform",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "schwaizer-i14y-mcp": "src/index.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests",
+    "format": "prettier --write \"src/**/*.js\" \"tests/**/*.js\""
+  },
+  "keywords": [
+    "mcp",
+    "i14y",
+    "switzerland",
+    "interoperability",
+    "dcat",
+    "open-data",
+    "metadata"
+  ],
+  "author": "ishumilin",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "dotenv": "^16.4.7",
+    "ky": "^1.7.3",
+    "pino": "^9.5.0",
+    "pino-pretty": "^13.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "vitest": "^2.1.8"
+  }
+}
